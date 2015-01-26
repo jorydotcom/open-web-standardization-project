@@ -1,0 +1,63 @@
+body {
+  margin: 0 auto;
+  background-color: #f9f9f9;
+  font-family: 'Open Sans', sans-serif;
+  color: #616161;
+}
+
+header {
+  margin: auto;
+}
+
+svg {
+  display: block;
+  margin: auto;
+}
+
+.node {
+  stroke: #2B282B;
+  stroke-width: 1.5px;
+  color: #2B282B;
+}
+
+.link {
+  stroke: #2B282B;
+  stroke-opacity: .6;
+}
+
+.node text {
+  pointer-events: none;
+  font: 10px; 
+  font-family: 'Open Sans', sans-serif;
+  color: #3B3B3B;
+}
+
+.node_data {
+	max-width: 800px;
+  margin: auto;
+}
+
+h1 {
+  margin-bottom: 0;
+  text-align: center;
+  font: 35px;
+}
+
+h2 {
+  margin-top: 0;
+  font-family: 'Open Sans Condensed', sans-serif; 
+  font: 20px;
+}
+
+header h2 {
+  text-align: center;
+}
+
+p {
+  font: 14px;
+}
+
+a {
+  color: #4B9DA3;
+}
+
