@@ -9,15 +9,28 @@ header {
   margin: auto;
 }
 
+footer {
+  margin: 0 auto;
+  text-align: center;
+}
+
 svg {
   display: block;
   margin: auto;
 }
 
 .node {
+  transition: opacity .5s;
+}
+
+.node circle {
+  cursor: pointer;
   stroke: #2B282B;
   stroke-width: 1.5px;
-  color: #2B282B;
+}
+
+.node circle:hover {
+  opacity: 0.5;
 }
 
 .link {
