@@ -62,7 +62,7 @@ d3.json("graph.json", function(error, graph) {
         //.on('click', connectedNodes) //For highlighting related nodes
         .call(drag);
 
-        //onclick, display or hide appropriate div (this function could be compressed/cleaned up!!)
+        //onclick, display or hide appropriate div, highlight related nodes
         node.on('click', connectedNodes)
 
     node.append("circle")
