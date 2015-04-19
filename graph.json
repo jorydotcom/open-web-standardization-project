@@ -76,6 +76,22 @@
     {"source":9,"target":25},
     {"source":9,"target":0},
     {"source":9,"target":1},
-    {"source":2,"target":11}
+    {"source":2,"target":11},
+    {"source":24,"target":26},
+    {"source":24,"target":28},
+    {"source":27,"target":24},
+    {"source":27,"target":26},
+    {"source":27,"target":15},
+    {"source":26,"target":25},
+    {"source":26,"target":28},
+    {"source":28,"target":25},
+    {"source":28,"target":17},
+    {"source":28,"target":21},
+    {"source":25,"target":27},
+    {"source":25,"target":24},
+    {"source":25,"target":22},
+    {"source":25,"target":11},
+    {"source":25,"target":17},
+    {"source":25,"target":21}
   ]
 }
