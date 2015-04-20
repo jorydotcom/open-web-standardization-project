@@ -12,7 +12,7 @@ var force = d3.layout.force()
     .linkDistance(40)
     .size([width, height]);
 
-//for node stickiness
+//for node stickiness & unstickiness
 function dragstart(d) {
   d3.select(this).classed("fixed", d.fixed = true);
 }
@@ -96,7 +96,7 @@ d3.json("graph.json", function(error, graph) {
           return d.y;
       });
 
-      d3.selectAll("text").attr("x", function (d) {
+      d3.selectAll("g.node text").attr("x", function (d) {
           return d.x;
       })
           .attr("y", function (d) {
@@ -185,3 +185,33 @@ d3.json("graph.json", function(error, graph) {
     };
   }
 });
+
+//Add a legend for the nodes - Thanks for your help, @iros!
+var chart = d3.select("svg");
+var groups = [
+    { id : 1, name : "Web Technology" },
+    { id : 2, name : "Standards Body" },
+    { id : 3, name : "Coordinating Committee" },
+    { id : 4, name : "Working Group" }
+];
+
+var legend = chart.append("g")
+  .attr("transform", "translate(10, 50)");
+
+var legendItems = legend.selectAll("g")
+  .data(groups, function(d) { return d.id; });
+
+var newItems = legendItems.enter()
+  .append("g")
+  .attr("transform", function(d, idx) {
+    return "translate(0, " + (idx * 25) + ")" ;
+  });
+
+newItems.append("circle")
+  .attr("r", 8)
+  .style("fill", function(d) { return color(d.id); })
+
+newItems.append("text")
+  .attr("class", "grouptext")
+  .attr({"x" : 15, "dy" : 5 })
+  .text(function(d) { return d.name; });
