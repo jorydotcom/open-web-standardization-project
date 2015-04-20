@@ -7,11 +7,23 @@ body {
 
 header {
   margin: auto;
+  padding-bottom: 50px;
 }
 
 footer {
-  margin: 0 auto;
-  text-align: center;
+  margin: 100px auto;
+  text-align: left;
+  font-size: .8em;
+  width: 450px;
+}
+
+footer p {
+  padding-top: 15px;
+}
+
+footer img {
+  float: left;
+  padding: 0 10px 0 20px;
 }
 
 svg {
@@ -40,7 +52,7 @@ svg {
 
 .node text {
   pointer-events: none;
-  font: 10px; 
+  font-size: 1em; 
   font-family: 'Open Sans', sans-serif;
   color: #3B3B3B;
 }
@@ -53,13 +65,13 @@ svg {
 h1 {
   margin-bottom: 0;
   text-align: center;
-  font: 35px;
+  font-size: 2.5em;
 }
 
 h2 {
   margin-top: 0;
-  font-family: 'Open Sans Condensed', sans-serif; 
-  font: 20px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 2em; 
 }
 
 header h2 {
@@ -67,7 +79,7 @@ header h2 {
 }
 
 p {
-  font: 14px;
+  font-size: 1em;
 }
 
 a {

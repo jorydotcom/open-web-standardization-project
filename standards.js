@@ -1,13 +1,14 @@
 //Constants for the SVG
-var width = 850,
-    height = 450;
+var width = 900,
+    height = 500;
 
 //Set up the color scale
 var color = d3.scale.category10();
 
 //Set up the force layout
 var force = d3.layout.force()
-    .charge(-300)
+    .charge(-450)
+    .gravity(.05)
     .linkDistance(40)
     .size([width, height]);
 
@@ -16,8 +17,12 @@ function dragstart(d) {
   d3.select(this).classed("fixed", d.fixed = true);
 }
 
+function releaseNode(d) {
+  d3.select(this).classed("fixed", d.fixed = false);
+}
+
 var drag = force.drag()
-    .on("dragstart", dragstart);
+    .on("dragstart", dragstart)
 
 //Append an SVG to the body of the html page. Assign this SVG as an object to svg
 var svg = d3.select("body").append("svg")
@@ -46,7 +51,9 @@ d3.json("graph.json", function(error, graph) {
   d3.selectAll("body div.node_data").insert("p")
   		.html(function(d) { return d.data; });
   	    
-  d3.selectAll("body").append("footer").html('<p>Made by <a href="http://twitter.com/jorydotcom">Jory</a> @ <a href="http://bocoup.com/datavis">Bocoup</a></p>');
+  //Append a GD footer because wtf D3 is hard
+  d3.selectAll("body").append("footer").html('<img src="bobsmall.png"><p>A research project by <a href="http://twitter.com/jorydotcom">jorydotcom</a> @ <a href="http://bocoup.com/datavis">Bocoup</a> </br>Join the discussion on <a href="https://github.com/jorydotcom/open-web-standardization-project">GitHub</a></br>Content current as of April 20, 2015</p>');
+  
   //Create all the line svgs but without locations yet
     var link = svg.selectAll(".link")
         .data(graph.links)
@@ -64,6 +71,7 @@ d3.json("graph.json", function(error, graph) {
 
         //onclick, display or hide appropriate div, highlight related nodes
         node.on('click', connectedNodes)
+        node.on('dblclick', releaseNode)
 
     node.append("circle")
         .attr("r", 8)
