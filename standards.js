@@ -66,7 +66,6 @@ d3.json("graph.json", function(error, graph) {
         .data(graph.nodes)
         .enter().append("g")
         .attr("class", "node")
-        //.on('click', connectedNodes) //For highlighting related nodes
         .call(drag);
 
         //onclick, display or hide appropriate div, highlight related nodes
@@ -203,6 +202,7 @@ var legendItems = legend.selectAll("g")
 
 var newItems = legendItems.enter()
   .append("g")
+  .attr("class", "legend")
   .attr("transform", function(d, idx) {
     return "translate(0, " + (idx * 25) + ")" ;
   });
@@ -213,5 +213,5 @@ newItems.append("circle")
 
 newItems.append("text")
   .attr("class", "grouptext")
-  .attr({"x" : 15, "dy" : 5 })
+  .attr({"dx" : 15, "dy" : 5 })
   .text(function(d) { return d.name; });
